@@ -1,0 +1,35 @@
+.menu-logo {
+  height: 100%;
+  margin-left: 1%;
+
+  .menu-button {
+    margin-right: 1%;
+  }
+}
+.coins {
+  font-size: 1.8rem;
+  color: teal;
+}
+
+.logo {
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.row {
+  height: 100%;
+}
+
+.header {
+  height: 10%;
+  box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+.buttons {
+  margin-right: 1%;
+}

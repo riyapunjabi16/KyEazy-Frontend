@@ -1,0 +1,39 @@
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.camera-icon {
+  border-radius: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mat-raised-button {
+  width: 100%;
+  margin-top: 1%;
+}
+
+.mat-stroked-button {
+  width: 100%;
+  margin-top: 1%;
+}
+
+.instructions-heading {
+  color: teal;
+  font-size: 2.5rem;
+}
+
+.back-button {
+  float: left;
+  width: 30%;
+}
+
+.next-button {
+  float: right;
+  width: 30%;
+}

@@ -1,0 +1,57 @@
+<div fxLayout="column" fxLayoutAlign="start center" class="sheet-container">
+  <div class="form-header">Add Coins to Wallet</div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      class="add-coins-container"
+      fxLayout="column"
+      fxLayoutAlign="start center"
+    >
+      <div class="add-coins-form">
+        <mat-form-field appearance="outline" class="coins-input-field">
+          <mat-label>Add Coins</mat-label>
+          <input
+            matInput
+            placeholder="Eg.100"
+            (keyup)="onKey($event)"
+            formControlName="coinsCount"
+          />
+          <mat-error>Enter an integer value.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-coins-form-text" fxLayout="column" *ngIf="!invalidForm">
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <span>Amount Payable</span>
+          <span
+            ><strong>{{ amount }}</strong> Rs/-</span
+          >
+        </div>
+        <div fxLayout="row wrap" class="per-employee-price">
+          <span>(Price Applied : </span
+          ><span
+            ><strong> {{ planToActivate }}</strong> per Coins)</span
+          >
+        </div>
+        <div fxLayout="row wrap" class="per-employee-price">
+          <span>(Coins : </span><span><strong> 50 </strong> per employee)</span>
+        </div>
+      </div>
+      <div
+        matTooltip="Add Coins Amount to Pay"
+        [matTooltipDisabled]="!invalidForm"
+        class="pay-button-container"
+        fxLayout="row"
+        fxLayoutAlign="end"
+      >
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="invalidForm"
+          type="submit"
+        >
+          Pay
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

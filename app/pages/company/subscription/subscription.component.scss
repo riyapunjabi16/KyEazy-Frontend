@@ -1,0 +1,87 @@
+.wallet-page-container {
+  overflow-x: hidden;
+}
+.container-card {
+  width: 96%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom: 0.5rem;
+}
+
+.container-card-mobile {
+  width: 100%;
+  margin-top: 0.5%;
+  padding: 0.8rem;
+  overflow-x: auto;
+}
+
+.subscription-heading {
+  margin-left: 2rem;
+  margin-top: 2rem !important;
+  h1 {
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+}
+.subscription-heading-mobile {
+  margin-top: 2rem !important;
+  h1 {
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+}
+
+.coin-balance-container-mobile {
+  width: 80%;
+}
+.coins-image-container {
+  // width: 40%;
+  .coins-image {
+    width: 100%;
+  }
+}
+
+.coin-balance {
+  .coin-balance-heading {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .coins {
+    margin-top: 2rem;
+    font-size: 2.4rem;
+    color: teal;
+  }
+  .coin-balance-details {
+    text-align: center;
+    margin-top: 1rem;
+    color: rgba($color: #000000, $alpha: 0.5);
+  }
+  .add-coins-text {
+    text-align: center;
+  }
+}
+
+.order-table {
+  margin-left: 2rem;
+  width: 90%;
+}
+.order-table-mobile {
+  margin-left: 2rem;
+  width: 95%;
+}
+
+.orders-heading {
+  margin-left: 2rem;
+  margin-top: 2rem !important;
+  h1 {
+    font-size: 2.4rem;
+    font-weight: lighter;
+  }
+}
+.orders-heading-mobile {
+  margin-top: 2rem !important;
+  h1 {
+    font-size: 2.4rem;
+    font-weight: lighter;
+  }
+}

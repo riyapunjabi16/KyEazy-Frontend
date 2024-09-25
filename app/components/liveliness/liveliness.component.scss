@@ -1,0 +1,56 @@
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.video-camera-icon {
+  border-radius: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mat-raised-button {
+  width: 100%;
+  margin-top: 2vh;
+}
+
+.mat-stroked-button {
+  width: 100%;
+  margin-top: 2vh;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.06);
+  border-radius: 1.2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.back-button {
+  float: left;
+  width: 30%;
+}
+
+.next-button {
+  float: right;
+  width: 30%;
+}
+
+.instructions-heading {
+  color: teal;
+  font-size: 2.5rem;
+}
+
+.generate-question {
+  width: 30%;
+  margin: 0;
+}

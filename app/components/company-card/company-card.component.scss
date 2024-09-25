@@ -1,0 +1,89 @@
+.company-card {
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.company-card-mobile {
+  margin-bottom: 1.6rem;
+}
+
+.employee-status-mobile {
+  display: inline;
+}
+
+.company-card-header {
+  .company-name {
+    margin-bottom: 1rem;
+  }
+  .company-cin {
+    margin-bottom: 0;
+  }
+}
+
+.company-card-header-mobile {
+  .company-name {
+    margin-bottom: 1rem;
+  }
+  .company-cin {
+    margin-bottom: 0;
+  }
+}
+
+.status-container {
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  cursor: default;
+  .total {
+    font-size: 1.8rem;
+  }
+  .accepted {
+    color: green;
+  }
+  .rejected {
+    color: red;
+  }
+  .pending {
+    color: sandybrown;
+  }
+  .registered {
+    color: #677e9a;
+  }
+}
+
+.status-container-mobile {
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 0;
+  cursor: default;
+  .total {
+    font-size: 1.6rem;
+  }
+  .accepted {
+    mat-icon {
+      color: green;
+    }
+  }
+  .rejected {
+    mat-icon {
+      color: red;
+    }
+  }
+  .pending {
+    mat-icon {
+      color: sandybrown;
+    }
+  }
+  .registered {
+    mat-icon {
+      color: #677e9a;
+    }
+  }
+}
+
+.status-container-mobile > div {
+  margin-bottom: 1rem;
+}
+
+.company-buttons-mobile {
+  width: 100%;
+}

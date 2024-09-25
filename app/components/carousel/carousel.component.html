@@ -1,0 +1,22 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  [ngClass]="'carousel-container'"
+>
+  <div fxFlex="7" class="center">
+    <mat-icon (click)="onPrevClick()"> arrow_back_ios_outline</mat-icon>
+  </div>
+
+  <div fxFlex="86" [ngClass]="'carousel-horizontal-scroll'">
+    <div class="full-size" *ngFor="let slide of slides; let i = index">
+      <div [id]="name + i" class="full-size">
+        <ng-template #template [ngTemplateOutlet]="slide.template">
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex="7" class="center">
+    <mat-icon (click)="onNextClick()">arrow_forward_ios</mat-icon>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+@use '~@angular/material' as mat;
+@import "~@angular/material/theming";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  font-size: 10px;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: teal;
+}
+
+.mat-radio-button.mat-primary .mat-radio-inner-circle {
+  color: teal;
+  background-color: teal;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: teal;
+}
+
+$my-primary: mat.define-palette(mat.$teal-palette);
+$my-accent: mat.define-palette(mat.$cyan-palette);
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.button-theme($my-theme);
+@include mat.stepper-theme($my-theme);
+@include mat.input-theme($my-theme);
+@include mat.form-field-theme($my-theme);
+@include mat.tabs-theme($my-theme);
+@include mat.icon-theme($my-theme);
+@include mat.progress-spinner-theme($my-theme);
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: teal;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lightblue;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-disabled
+  .mat-form-field-outline {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.mat-input-element:disabled,
+.mat-form-field-type-mat-native-select.mat-form-field-disabled
+  .mat-form-field-infix::after {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.loader {
+  margin-top: 20%;
+}

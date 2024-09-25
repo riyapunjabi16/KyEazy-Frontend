@@ -1,0 +1,35 @@
+<div
+  fxLayout="column"
+  *ngIf="employeeLoading || videoLoading || imageLoading || documentLoading"
+  fxLayoutAlign="center center"
+  class="loader"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div
+  *ngIf="!employeeLoading && !videoLoading && !imageLoading && !documentLoading"
+>
+  <app-profile
+    [employee]="details"
+    [document]="documents"
+    [liveliness]="liveliness"
+    [selfie]="selfie"
+    [company]="company"
+    [kyeasyVerification]="kyeasyVerification"
+    userType="employee"
+    status="Registered"
+    class="profile-component"
+    [status]="'Registered'"
+  ></app-profile>
+  <div fxLayout="center" fxLayoutAlign="center center">
+    <button
+      mat-raised-button
+      color="primary"
+      class="submit-button"
+      (click)="submitKYC()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

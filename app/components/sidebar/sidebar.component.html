@@ -1,0 +1,80 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="hasBackdrop">
+  <mat-sidenav
+    [ngClass.gt-sm]="'sidenav-large'"
+    [ngClass.sm]="'sidenav-medium'"
+    [ngClass.xs]="'sidenav-mobile'"
+    [mode]="sidenavMode"
+    [opened]="sidenavOpen"
+    disableClose="true"
+    fixedInViewport="false"
+  >
+    <mat-nav-list>
+      <a
+        mat-list-item
+        class="sidenav-list-item"
+        routerLink="/company/dashboard"
+        *ngIf="currentRoute.substring(1, 4) === 'com'"
+      >
+        Dashboard</a
+      >
+
+      <a
+        mat-list-item
+        class="sidenav-list-item"
+        routerLink="/company/employees"
+        *ngIf="currentRoute.substring(1, 4) === 'com'"
+      >
+        Employees</a
+      >
+
+      <a
+        mat-list-item
+        routerLink="/company/register"
+        class="sidenav-list-item"
+        *ngIf="currentRoute.substring(1, 4) === 'com'"
+      >
+        Register</a
+      >
+
+      <a
+        mat-list-item
+        routerLink="/company/wallet"
+        class="sidenav-list-item"
+        *ngIf="currentRoute.substring(1, 4) === 'com'"
+      >
+        Wallet</a
+      >
+
+      <a
+        mat-list-item
+        class="sidenav-list-item"
+        routerLink="/admin/dashboard"
+        *ngIf="currentRoute.substring(1, 4) === 'adm'"
+      >
+        Dashboard</a
+      >
+
+      <a
+        mat-list-item
+        class="sidenav-list-item"
+        routerLink="/admin/all-employees"
+        *ngIf="currentRoute.substring(1, 4) === 'adm'"
+      >
+        Employees</a
+      >
+
+      <a
+        mat-list-item
+        class="sidenav-list-item"
+        routerLink="/admin/all-companies"
+        *ngIf="currentRoute.substring(1, 4) === 'adm'"
+      >
+        Companies</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

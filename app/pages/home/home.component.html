@@ -1,0 +1,351 @@
+<div (scroll)="onScroll()" class="home">
+  <div
+    id="top"
+    #top
+    class="full-size"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <div fxFlex="10"></div>
+    <div
+      class="left"
+      fxFlex="40"
+      fxFlex.sm="80"
+      fxFlex.xs="80"
+      fxLayout="column"
+      fxLayoutAlign="space-around start"
+    >
+      <div
+        [ngClass.xs]="'heading-small'"
+        [ngClass.sm]="'heading-small'"
+        [ngClass.md]="'heading-small'"
+        [ngClass.lg]="'heading-large'"
+        [ngClass.xl]="'heading-large'"
+      >
+        Verifying employees <br />
+        for great companies.
+      </div>
+      <br />
+      <div
+        [ngClass.xs]="'sub-heading-small'"
+        [ngClass.sm]="'sub-heading-small'"
+        [ngClass.md]="'sub-heading-small'"
+        [ngClass.lg]="'sub-heading-large'"
+        [ngClass.xl]="'sub-heading-large'"
+      >
+        From small businesses to global organizations, spanning a wide range of
+        industries, our suite of solutions will help you hire with confidence,
+        stay compliant and manage the entire process.
+      </div>
+      <br />
+      <div
+        [ngClass.xs]="'login-small'"
+        [ngClass.sm]="'login-small'"
+        [ngClass.md]="'login-large'"
+        [ngClass.lg]="'login-large'"
+        [ngClass.xl]="'login-large'"
+        style="width: 30%"
+      >
+        <button
+          (click)="showLoginModal()"
+          class="full-width"
+          mat-raised-button
+          color="primary"
+        >
+          Log In
+        </button>
+      </div>
+      <br />
+      <div>
+        Don't have account ?<a class="link" routerLink="/company/signup">
+          Sign up</a
+        >
+      </div>
+    </div>
+    <div fxFlex="5"></div>
+    <div class="right" fxFlex="40" *ngIf="!isSmall">
+      <img src="/assets/images/homepage.gif" alt="homepage" />
+    </div>
+    <div fxFlex="5"></div>
+  </div>
+
+  <div id="about" #about [ngClass.lt-sm]="'hide'" class="about">
+    <div
+      [ngClass.xs]="'about-heading'"
+      [ngClass.sm]="'about-heading'"
+      [ngClass.md]="'about-heading'"
+      [ngClass.lg]="'about-heading'"
+      [ngClass.xl]="'about-heading'"
+    >
+      About us
+    </div>
+    <div [ngClass.lt-sm]="'hide'" [ngClass.gt-xs]="'card-container'">
+      <div [ngClass.lt-sm]="'hide'" [ngClass.gt-xs]="'show'" fxFlex="7"></div>
+      <div
+        [ngClass.lt-sm]="'hide'"
+        [ngClass.gt-xs]="'card-container'"
+        fxFlex="86"
+      >
+        <div [ngClass.gt-xs]="'card'" (click)="scrollToServices()">
+          <div class="card-image-div">
+            <img class="card-image" src="/assets/images/services.gif" />
+          </div>
+          <div class="card-bottom">Our Services</div>
+        </div>
+        <div [ngClass.gt-xs]="'card'" (click)="scrollToProduct()">
+          <div class="card-image-div">
+            <img class="card-image" src="/assets/images/product.gif" />
+          </div>
+          <div class="card-bottom">Our Product</div>
+        </div>
+        <div [ngClass.gt-xs]="'card'" (click)="scrollToSolutions()">
+          <div class="card-image-div">
+            <img class="card-image" src="/assets/images/solutions.gif" />
+          </div>
+          <div class="card-bottom">Our Solutions</div>
+        </div>
+      </div>
+      <div [ngClass.lt-sm]="'hide'" [ngClass.gt-xs]="'show'" fxFlex="7"></div>
+    </div>
+  </div>
+
+  <div id="service" #services class="service" [ngClass.lt-sm]="'hide'">
+    <div [ngClass]="'service-heading'">Our Services</div>
+    <div class="full-size">
+      <app-carousel name="service">
+        <div fxLayout="row" class="carousel-div" *carousel-slide>
+          <div fxFlex="40">
+            <img class="c-image" src="/assets/images/mobile-1.gif" />
+          </div>
+          <div fxFlex="5"></div>
+          <div fxLayout="column" fxLayoutAlign="center end" fxFlex="50">
+            <div class="c-title-1">Mobile Friendly Candidate hub</div>
+            <br />
+            <div class="c-body-1">
+              Today's applicants, particularly millenials and digital natives,
+              expects a high-touch, transparent hiring and employment background
+              check screening process.
+            </div>
+            <br />
+          </div>
+          <div fxFlex="5"></div>
+        </div>
+        <div fxLayout="row" class="carousel-div" *carousel-slide>
+          <div fxFlex="5"></div>
+          <div fxLayout="column" fxLayoutAlign="center start  " fxFlex="50">
+            <div class="c-title-2">Post Hire Monitoring Solution</div>
+            <br />
+            <div class="c-body-2">
+              It is often difficult to effectively manage the risk of new hires
+              without dedicated supporting technology. KYEasy enables companies
+              to better protect their brands, workplaces, relationship from risk
+              by giving them power to report an Employee
+            </div>
+            <br />
+          </div>
+          <div fxFlex="5"></div>
+          <div fxFlex="40">
+            <img class="c-image" src="/assets/images/monitor.gif" />
+          </div>
+        </div>
+        <div fxLayout="row" class="carousel-div" *carousel-slide>
+          <div fxFlex="40">
+            <img class="c-image" src="/assets/images/analytics.gif" />
+          </div>
+          <div fxFlex="5"></div>
+          <div fxLayout="column" fxLayoutAlign="center end" fxFlex="50">
+            <div class="c-title-1">Hire Faster, Onboard Smarter</div>
+            <br />
+            <div class="c-body-1">
+              Our pre-employment services can help inform your hiring decisions
+              without taking up valuable HR time. We verify your candidate's
+              details, documents and liveliness, then we present the results to
+              you in a simple boolean form.
+            </div>
+            <br />
+          </div>
+          <div fxFlex="5"></div>
+        </div>
+      </app-carousel>
+    </div>
+  </div>
+
+  <div id="product" #product [ngClass.lt-sm]="'hide'" class="product">
+    <div [ngClass]="'product-heading'">Our Product</div>
+    <div fxLayout="row" style="height: 80%" fxLayoutAlign="center center">
+      <div fxFlex="7"></div>
+      <div fxFlex="45" fxLayout="column" fxLayoutAlign="space-around start">
+        <div class="product-title">We Make KYC Easy for you</div>
+        <br />
+        <div class="product-body">
+          Employers need much more than just raw data to operate a successful
+          employment screening program, we are committed to provide easy KYC
+          solutions for employees and support companies for identifying their
+          employees,
+        </div>
+        <br />
+        <div>
+          <button mat-stroked-button routerLink="/company/signup">
+            Start Now
+          </button>
+        </div>
+        <br />
+        <div style="font-size: 2rem">
+          Sign Up & and get <b> 200 </b> Coins Free
+        </div>
+      </div>
+      <div fxFlex="6"></div>
+      <div
+        fxFlex="35"
+        class="full-width"
+        style="height: 80%"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <iframe
+          class="full-size"
+          src="https://www.youtube.com/embed/hPXzbxB6Tjc"
+        >
+        </iframe>
+      </div>
+      <div fxFlex="7"></div>
+    </div>
+  </div>
+
+  <div id="solution" #solutions [ngClass.lt-sm]="'hide'" class="solution">
+    <div [ngClass]="'solution-heading'">Our Prices</div>
+
+    <div [ngClass.lt-sm]="'hide'" class="full-height" [ngClass.gt-xs]="'show'">
+      <div
+        [ngClass.lt-sm]="'hide'"
+        [ngClass.gt-xs]="'card-container'"
+        fxFlex="7"
+      ></div>
+
+      <div
+        class="price-container"
+        [ngClass.lt-sm]="'hide'"
+        [ngClass.gt-xs]="'card-container'"
+        fxFlex="86"
+      >
+        <div class="solution-card-container">
+          <div
+            class="solution-card-wrapper"
+            fxLayout="column"
+            fxLayoutAlign="space-between center"
+          >
+            <div class="solution-card">
+              <img src="/assets/images/global.png" />
+            </div>
+            <br />
+            <div fxFlex>
+              International<br />
+              &gt; &nbsp; 10000 KYE
+            </div>
+            <br />
+            <br />
+            <div>
+              <button
+                mat-stroked-button
+                (click)="openLearnMore('INTERNATIONAL')"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-card-container">
+          <div
+            class="solution-card-wrapper"
+            fxLayout="column"
+            fxLayoutAlign="space-between center"
+          >
+            <div class="solution-card">
+              <img src="/assets/images/enterprise.png" />
+            </div>
+            <br />
+            <div fxFlex>
+              Enterprise <br />
+              1000 - 10000 KYE
+            </div>
+            <br />
+            <br />
+            <div>
+              <button mat-stroked-button (click)="openLearnMore('ENTERPRICE')">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-card-container">
+          <div
+            class="solution-card-wrapper"
+            fxLayout="column"
+            fxLayoutAlign="space-between center"
+          >
+            <div class="solution-card">
+              <img src="/assets/images/mid-market.png" />
+            </div>
+            <br />
+            <div fxFlex>
+              Mid Market <br />
+              100 - 1000 KYE
+            </div>
+            <br />
+            <br />
+            <div>
+              <button mat-stroked-button (click)="openLearnMore('MID')">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-card-container">
+          <div fxLayout="column" fxLayoutAlign="space-between center">
+            <div class="solution-card">
+              <img src="/assets/images/small-business.gif" />
+            </div>
+            <br />
+            <div>
+              Small Business <br />
+              &lt; &nbsp; 100 KYE
+            </div>
+          </div>
+          <br />
+          <br />
+          <div>
+            <button mat-stroked-button (click)="openLearnMore('SMALL')">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div [ngClass.lt-sm]="'hide'" fxFlex="7"></div>
+    </div>
+
+    <div [ngClass.gt-xs]="'hide'" [ngClass.lt-sm]="'show'" class="full-size">
+      <app-carousel name="price">
+        <div *carousel-slide>Global International</div>
+        <div *carousel-slide>Enterprise</div>
+        <div *carousel-slide>Mid Market</div>
+        <div *carousel-slide>Small Business</div>
+      </app-carousel>
+    </div>
+  </div>
+
+  <button
+    class="scroll-to-top"
+    [ngClass]="{ show: showScrollToTop, hide: !showScrollToTop }"
+    (click)="onScrollToTop()"
+  >
+    <mat-icon> arrow_upward </mat-icon>
+  </button>
+
+  <div #footer [ngClass.lt-sm]="'home-footer-mobile'" class="home-footer">
+    <app-footer></app-footer>
+  </div>
+</div>

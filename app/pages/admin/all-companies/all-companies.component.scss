@@ -1,0 +1,56 @@
+.company-container {
+  margin-top: 1%;
+
+  .search-comapny {
+    width: 95%;
+    font-size: 1.2rem;
+    display: block;
+
+    .search-form-field {
+      width: 50%;
+    }
+    .search-button {
+      margin-top: 0.2em;
+      height: 4.3rem;
+    }
+  }
+}
+
+.company-container-mobile {
+  margin-top: 1%;
+
+  .search-comapny-mobile {
+    width: 95%;
+    font-size: 1.2rem;
+
+    .search-form-field-mobile {
+      width: 90%;
+    }
+    .search-button-mobile {
+      margin-top: 0.2em;
+      height: 4.3rem;
+    }
+  }
+}
+
+.container-card {
+  width: 96%;
+  margin-top: 2%;
+  min-height: 100%;
+  background-color: rgb(253, 253, 253);
+}
+
+.container-card-mobile {
+  width: 100%;
+  margin-top: 0.5%;
+  padding: 0.8rem;
+  background-color: rgb(253, 253, 253);
+}
+
+.company-paginator {
+  width: 95%;
+}
+
+::ng-deep .mat-paginator {
+  background-color: rgba($color: #ffffff, $alpha: 0);
+}

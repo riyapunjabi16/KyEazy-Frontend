@@ -1,0 +1,74 @@
+<div
+  fxLayout="column"
+  *ngIf="loading"
+  fxLayoutAlign="center center"
+  class="loader"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="full-size" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    (ngSubmit)="onSave()"
+    [formGroup]="form"
+    [ngStyle.xs]="{ width: '90%' }"
+    [ngStyle.sm]="{ width: '70%' }"
+    [ngStyle.md]="{ width: '50%' }"
+    [ngStyle.lg]="{ width: '40%' }"
+    [ngStyle.xl]="{ width: '40%' }"
+  >
+    <mat-form-field fxflex appearance="outline">
+      <mat-label>Document Type</mat-label>
+      <mat-select formControlName="documentType">
+        <mat-option value="aadhar" name="documentType">
+          Aadhar Card
+        </mat-option>
+        <mat-option value="pan" name="documentType"> Pan Card </mat-option>
+        <mat-option value="driving" name="documentType">
+          Driving Licence
+        </mat-option>
+        <mat-option value="passport" name="documentType"> Passport </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxflex appearance="outline">
+      <mat-label>Document Number</mat-label>
+      <input matInput formControlName="documentNumber" name="documentNumber" />
+    </mat-form-field>
+
+    <div fxFlex>
+      {{ fileName }}
+      <input
+        #input
+        type="file"
+        hidden
+        accept=".pdf"
+        (change)="onChange($event)"
+      />
+      <button mat-stroked-button color="primary" (click)="input.click()">
+        Upload Document
+      </button>
+    </div>
+
+    <div fxFlex style="margin-top: 3%">
+      <button
+        class="back-button"
+        mat-stroked-button
+        color="warn"
+        (click)="onBack()"
+      >
+        Back
+      </button>
+      <button
+        mat-raised-button
+        class="next-button"
+        color="primary"
+        type="submit"
+      >
+        Next
+      </button>
+    </div>
+  </form>
+</div>
+<!-- </mat-card> -->

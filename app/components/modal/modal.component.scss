@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.modal {
+}
+
+.modal-header {
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.modal-body {
+}
+
+.prompt-header {
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  .prompt {
+    font-size: 1rem;
+  }
+}

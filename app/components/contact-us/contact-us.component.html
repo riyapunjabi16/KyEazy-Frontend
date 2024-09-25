@@ -1,0 +1,78 @@
+<div class="card">
+  <h1 class="signupHeading">Contact Us</h1>
+
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [formGroup]="messageForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Your Name</mat-label>
+      <input
+        matInput
+        placeholder="Eg. Amit"
+        type="text"
+        name="name"
+        formControlName="name"
+        required
+      />
+      <mat-error
+        *ngIf="
+          !messageForm.get('name')?.valid && messageForm.get('name')?.touched
+        "
+      >
+        You must provide <strong>name</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="email@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error
+        *ngIf="
+          !messageForm.get('email')?.valid && messageForm.get('email')?.touched
+        "
+      >
+        Invalid
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Any Message</mat-label>
+      <textarea
+        draggable="false"
+        matInput
+        placeholder="Write here your message"
+        formControlName="message"
+        required
+      ></textarea>
+      <mat-error
+        *ngIf="
+          !messageForm.get('message')?.valid &&
+          messageForm.get('message')?.touched
+        "
+      >
+        Company must have some <strong>description</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <br />
+    <button mat-flat-button color="primary" type="submit" class="btn-width">
+      Submit
+    </button>
+
+    <br />
+    <span
+      *ngIf="!messageForm.valid && messageForm.touched && isSubmitted"
+      class="submit-error"
+    >
+      Please Enter correct details
+    </span>
+  </form>
+</div>

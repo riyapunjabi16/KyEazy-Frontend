@@ -1,0 +1,305 @@
+<div
+  fxLayout="column"
+  *ngIf="loading"
+  fxLayoutAlign="center center"
+  class="loader"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div
+  class="signup-container"
+  *ngIf="!loading"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+>
+  <div
+    class="signup-image-container"
+    fxFlex="40"
+    *ngIf="!isSmall"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <img src="/assets/images/signup.gif" />
+  </div>
+
+  <div class="card" fxFlex.gt-xs="60" fxFlex.xs="100">
+    <h1 class="signupHeading">Sign up your Company</h1>
+
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Company Name</mat-label>
+        <input
+          matInput
+          placeholder="Eg. Hashedin"
+          type="text"
+          name="company-name"
+          formControlName="companyName"
+          required
+        />
+        <mat-error
+          *ngIf="
+            !form.get('companyName')?.valid && form.get('companyName')?.touched
+          "
+        >
+          You must provide <strong>company name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          placeholder="Username"
+          type="text"
+          name="username"
+          formControlName="userName"
+          required
+        />
+        <mat-error
+          *ngIf="!form.get('userName')?.valid && form.get('userName')?.touched"
+        >
+          You must provide <strong>username</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        class="pwdField"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          required
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="!form.get('password')?.valid && form.get('password')?.touched"
+        >
+          To login you must provide <strong>password</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Company Description</mat-label>
+        <textarea
+          draggable="false"
+          matInput
+          placeholder="Write About Company"
+          formControlName="companyDescription"
+          required
+        ></textarea>
+        <mat-error
+          *ngIf="
+            !form.get('companyDescription')?.valid &&
+            form.get('companyDescription')?.touched
+          "
+        >
+          Company must have some <strong>description</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>CIN Number</mat-label>
+        <input
+          matInput
+          type="text"
+          style="text-transform: uppercase"
+          formControlName="cin"
+          required
+        />
+        <mat-error *ngIf="form.get('cin').errors?.minlength">
+          Company must have 21 digits <strong> CIN Number </strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="email@example.com"
+          formControlName="email"
+          required
+        />
+        <mat-error
+          *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
+        >
+          Invalid
+        </mat-error>
+      </mat-form-field>
+
+      <div fxLayoutAlign="space-between center" fxLayout="row" style="width: 70%;margin-bottom: 2%;opacity: 0.8;">
+        <label fxFlex> KYEasy Verification </label>
+        <mat-radio-group
+        fxFlex
+        fxLayout="row"
+        fxFlexAlign="space-between center"
+        formControlName="kyeasyVerification"
+      >
+        <mat-radio-button value="y" fxFlex>Yes</mat-radio-button>&nbsp;
+        <mat-radio-button value="n" fxFlex>No</mat-radio-button>
+      </mat-radio-group>
+      </div>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Address Line 1</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 100 Main St"
+          formControlName="address"
+          required
+        />
+        <mat-error
+          *ngIf="form.get('address1')?.valid && form.get('address1')?.touched"
+        >
+          Company must prvoide <strong>address</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Address Line 2</mat-label>
+        <input matInput formControlName="address2" />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>City</mat-label>
+        <input
+          matInput
+          placeholder="Ex. Bangalore"
+          formControlName="city"
+          required
+        />
+        <mat-error *ngIf="form.get('city')?.valid && form.get('city')?.touched">
+          Company must give its <strong>city name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>State</mat-label>
+        <input
+          matInput
+          placeholder="Ex. Karnataka"
+          formControlName="state"
+          required
+        />
+        <mat-error
+          *ngIf="form.get('state')?.valid && form.get('state')?.touched"
+        >
+          Company must give its <strong>state name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Postal Code</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 456010"
+          formControlName="postalCode"
+          required
+        />
+        <mat-error
+          *ngIf="
+            form.get('postalCode')?.valid && form.get('postalCode')?.touched
+          "
+        >
+          Company must give its <strong>city postal code</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        [ngClass.gt-xs]="'signup-form-field'"
+        [ngClass.xs]="'signup-form-field-mobile'"
+      >
+        <mat-label>Country</mat-label>
+        <input
+          matInput
+          placeholder="Ex. India"
+          formControlName="country"
+          required
+        />
+        <mat-error
+          *ngIf="form.get('country')?.valid && form.get('country')?.touched"
+        >
+          Company must give its <strong>country name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div fxFlex>
+        {{ fileName }}
+        <input
+          #input
+          type="file"
+          hidden
+          (change)="onChange($event)"
+          formControlName="icon"
+        />
+        <button mat-stroked-button color="primary" (click)="input.click()">
+          Upload Logo
+        </button>
+      </div>
+
+      <br />
+      <button mat-flat-button color="primary" type="submit" class="btn-width">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

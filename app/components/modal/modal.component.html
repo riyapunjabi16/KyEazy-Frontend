@@ -1,0 +1,23 @@
+<div class="modal">
+  <div class="modal-header">
+    <span class="close-modal-button" (click)="onClose()"> &times;</span>
+  </div>
+
+  <div class="modal-body">
+    <mat-tab-group *ngIf="data.type === 'LOGIN'" mat-align-tabs="center">
+      <mat-tab label="Company Login" class="company">
+        <app-login [type]="'COMPANY_LOGIN'" [dialog]="dialog"></app-login>
+      </mat-tab>
+      <mat-tab label="Employee Login">
+        <app-login [type]="'EMPLOYEE_LOGIN'" [dialog]="dialog"></app-login>
+      </mat-tab>
+    </mat-tab-group>
+
+    <app-report
+      *ngIf="data.type === 'REPORT' || data.type === 'REJECT'"
+      [dialog]="dialog"
+      [employeeId]="data.employeeId"
+      [type]="data.type"
+    ></app-report>
+  </div>
+</div>

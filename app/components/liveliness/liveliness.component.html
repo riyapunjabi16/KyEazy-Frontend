@@ -1,0 +1,149 @@
+<!-- <div fxLayout="column" *ngIf="loading" fxLayoutAlign="center center" class="loader">
+  <mat-spinner></mat-spinner>
+</div>
+ -->
+<div
+  class="full-size"
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayout.sm="column"
+  fxLayoutAlign.xs="start center"
+  fxLayoutAlign.sm="start center"
+  fxLayoutAlign="space-evenly center"
+>
+  <div fxFlex.gt-sm="50">
+    <div class="instructions-heading">Instruction</div>
+    .
+    <br />
+    <mat-divider></mat-divider>
+    <div style="text-align: justify">
+      Check that the web cam picture is in focus. If your picture is
+      out-of-focus, please adjust your web camera settings.
+    </div>
+    <br />
+    <mat-divider></mat-divider>
+    <div style="text-align: justify">
+      Find a room with plenty of natural light, but do not sit with a window
+      behind you. Bright sunlight coming through a window behind you may conceal
+      your face on the web camera.
+    </div>
+    <br />
+    <mat-divider></mat-divider>
+
+    <div style="text-align: justify">
+      If your web cam is mountable, position it on your monitor so that it is
+      directly facing you. Do not position the web camera so that it is
+      capturing you from side-on.
+    </div>
+    <br />
+    <mat-divider></mat-divider>
+    <div style="text-align: justify">
+      Ensure that the web camera will capture your face from the neck upwards.
+      Your entire face must be visible. Ensure that the position of it does not
+      cut off part of your face.
+    </div>
+    <br />
+    <mat-divider></mat-divider>
+    <div style="text-align: justify">
+      If your web cam is built-in, adjust your monitor height if necessary, so
+      that the web cam is pointing at your face.
+    </div>
+    <br />
+    <mat-divider></mat-divider>
+
+    <div
+      textAlign="center"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      class="full-width"
+      style="padding: 1rem"
+    >
+      <span style="width: 70%; font-size: 1.5rem">
+        <b> Answer the following Question &nbsp; : &nbsp; {{ question }} </b>
+      </span>
+      <button
+        class="generate-question"
+        mat-stroked-button
+        color="primary"
+        (click)="getQuestion()"
+      >
+        Generate New
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+    <br />
+  </div>
+
+  <div fxFlex.gt-sm="40" fxLayoutAlign="center center" fxLayout="column">
+    <!-- icon conainer -->
+    <div [ngClass]="{ show: !camera, hide: camera }">
+      <img
+        class="video-camera-icon"
+        (click)="startCamera()"
+        src="/assets/images/video.gif"
+        [height]="height"
+        [width]="width"
+      />
+    </div>
+
+    <!-- video container -->
+    <div [class.show]="camera" [class.hide]="!camera" fxFlex>
+      <p *ngIf="timeleft > 0">Timeleft: {{ timeleft }}</p>
+
+      <!-- to capture video -->
+      <video
+        #toCapture
+        [class.show]="!captured"
+        [class.hide]="captured"
+        autoplay
+        [width]="width"
+        [height]="height"
+      ></video>
+
+      <!-- to play video -->
+      <video
+        #toPlay
+        controls
+        [class.show]="captured"
+        [class.hide]="!captured"
+        [width]="width"
+        [height]="height"
+      ></video>
+
+      <!-- while recording the video -->
+      <div [class.show]="!captured" [class.hide]="captured">
+        <button mat-stroked-button color="primary" (click)="stopCamera()">
+          Stop
+        </button>
+      </div>
+
+      <!-- after recording the video -->
+      <div [class.show]="captured" [class.hide]="!captured">
+        <button mat-stroked-button color="primary" (click)="retry()">
+          Retry
+        </button>
+      </div>
+    </div>
+
+    <div fxFlex [ngStyle]="{ 'width.px': width }">
+      <button
+        class="back-button"
+        mat-stroked-button
+        color="warn"
+        (click)="back()"
+      >
+        Back
+      </button>
+      <button
+        class="next-button"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="save()"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>

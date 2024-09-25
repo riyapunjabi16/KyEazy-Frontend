@@ -1,0 +1,111 @@
+<div fxLayout="column" class="full-size" fxLayoutAlign="center center" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div
+  *ngIf="!loading"
+  class="wallet-page-container">
+  <mat-card
+    [ngClass.gt-xs]="'container-card'"
+    [ngClass.lt-sm]="'container-card-mobile'"
+    fxLayout.xs="column"
+    fxLayoutAlign.xs="start center"
+  >
+    <div
+      [ngClass.gt-xs]="'subscription-heading'"
+      [ngClass.xs]="'subscription-heading-mobile'"
+      fxLayout="row"
+      fxLayoutAlign="start"
+      fxLayoutAlign.xs="center"
+    >
+      <h1>Manage Wallet</h1>
+    </div>
+    <div
+      [ngClass.gt-xs]="'coin-balance-container'"
+      [ngClass.xs]="'coin-balance-container-mobile'"
+      fxLayout.gt-xs="row"
+      fxLayoutAlign.gt-xs="space-around center"
+      fxLayout.xs="column"
+      fxLayoutAlign.xs="start center"
+    >
+      <div class="coins-image-container" fxFlex.gt-xs="40">
+        <img
+          class="coins-image"
+          src="/assets/images/coins.gif"
+          alt="homepage"
+        />
+      </div>
+      <div
+        fxFlex="40"
+        class="coin-balance"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <div class="coin-balance-heading">Your current Coin Balance is</div>
+        <div class="coins" fxLayout="row" fxLayoutAlign="center center">
+          {{ coinBalance }}<mat-icon style="color: gold">paid</mat-icon>
+        </div>
+        <div class="coin-balance-details">
+          You can do KYC of {{ coinBalance / 50 }} more employees!
+        </div>
+        <div class="add-coins-text">
+          Want to Add More?
+          <button mat-button color="primary" (click)="openBottomSheet()">
+            Add Now!
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card
+    *ngIf="orderHistory.length != 0"
+    [ngClass.gt-xs]="'container-card'"
+    [ngClass.lt-sm]="'container-card-mobile'"
+    fxLayout.xs="column"
+    fxLayoutAlign.xs="center center"
+  >
+    <div
+      [ngClass.gt-xs]="'orders-heading'"
+      [ngClass.xs]="'orders-heading-mobile'"
+      fxLayout="row"
+      fxLayoutAlign="start"
+      fxLayoutAlign.xs="start"
+    >
+      <h1>Recent Payments</h1>
+    </div>
+
+    <table
+      mat-table
+      [dataSource]="orderHistory"
+      [ngClass.gt-xs]="'mat-elevation-z4 order-table'"
+      [ngClass.xs]="'mat-elevation-z0 order-table-mobile'"
+    >
+      <!-- Name Column -->
+      <ng-container matColumnDef="companyOrderId">
+        <th mat-header-cell *matHeaderCellDef>Order No</th>
+        <td mat-cell *matCellDef="let element">{{ element.companyOrderId }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef>Order Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.orderId }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="paymentId">
+        <th mat-header-cell *matHeaderCellDef>Payment Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.paymentId }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card>
+
+</div>

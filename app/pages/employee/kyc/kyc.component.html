@@ -1,0 +1,24 @@
+<div
+  [ngClass.sm]="'kyc-mobile'"
+  [ngClass.xs]="'kyc-mobile'"
+  [ngClass.md]="'kyc'"
+  [ngClass.lg]="'kyc'"
+>
+  <mat-stepper [linear]="true" [orientation]="orientation" #stepper>
+    <mat-step label="Personal Details">
+      <app-details [stepper]="stepper"></app-details>
+    </mat-step>
+    <mat-step label="Documents">
+      <app-documents [stepper]="stepper"></app-documents>
+    </mat-step>
+    <mat-step label="Picture">
+      <app-selfie [stepper]="stepper"></app-selfie>
+    </mat-step>
+    <mat-step label="Liveliness">
+      <app-liveliness [stepper]="stepper"></app-liveliness>
+    </mat-step>
+    <mat-step label="Review">
+      <app-review [stepper]="stepper"></app-review>
+    </mat-step>
+  </mat-stepper>
+</div>

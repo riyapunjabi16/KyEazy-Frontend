@@ -1,0 +1,246 @@
+<div class="profile-container" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card
+    [ngClass.gt-sm]="'profile-card-large'"
+    [ngClass.sm]="'profile-card-medium'"
+    [ngClass.xs]="'profile-card-mobile'"
+    fxLayout="column"
+  >
+    <div
+      class="card-container"
+      [ngClass.gt-sm]="'card-container-large'"
+      [ngClass.sm]="'card-container-medium'"
+      [ngClass.xs]="'card-container-mobile'"
+      fxLayout="column"
+      fxLayoutAlign="start center"
+    >
+      <mat-card-header
+        [ngClass.gt-sm]="'profile-card-header-large'"
+        [ngClass.sm]="'profile-card-header-medium'"
+        [ngClass.xs]="'profile-card-header-mobile'"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <img #image mat-card-avatar />
+        <mat-card-title class="profile-name">
+          {{ employee.firstName }} {{ employee.lastName }}
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content
+        class="profile-card-content"
+        fxLayout="column"
+        fxLayoutAlign="start start"
+      >
+        <div
+          class="profile-content-row address-container"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+        >
+          <div
+            class="profile-element address"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <strong fxLayout="row wrap" fxLayoutAlign="center center">
+              {{ employee.addressLine1 }}, {{ employee.addressLine2 }}
+            </strong>
+            <strong fxLayout="row wrap" fxLayoutAlign="center center">
+              {{ employee.city }}, {{ employee.state }}, {{ employee.country }}
+            </strong>
+            <div class="profile-component-detail">Address</div>
+          </div>
+        </div>
+
+        <div
+          class="profile-content-row contact info"
+          fxLayout.xs="column"
+          fxLayoutAlign.xs="center center"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <div
+            class="profile-element email"
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            fxLayoutAlign.xs="start center"
+          >
+            <strong>{{ employee.email }}</strong>
+            <div class="profile-component-detail">Email-Address</div>
+          </div>
+          <div
+            class="profile-element mobile-no"
+            fxLayout="column"
+            fxLayoutAlign="start end"
+            fxLayoutAlign.xs="start center"
+          >
+            <strong> {{ employee.contact }}</strong>
+            <div class="profile-component-detail">Mobile No.</div>
+          </div>
+        </div>
+
+        <div
+          class="profile-content-row contact info"
+          fxLayout.xs="column"
+          fxLayoutAlign.xs="center center"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <div
+            class="profile-element gender"
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            fxLayoutAlign.xs="start center"
+          >
+            <strong fxLayout="row wrap" fxLayoutAlign="center center">
+              {{ employee.gender }}</strong
+            >
+            <div class="profile-component-detail">Gender</div>
+          </div>
+          <div
+            class="profile-element company"
+            fxLayout="column"
+            fxLayoutAlign="start end"
+            fxLayoutAlign.xs="start center"
+          >
+            <strong fxLayout="row wrap" fxLayoutAlign="center center">
+              {{ company }}
+            </strong>
+            <div class="profile-component-detail">Company</div>
+          </div>
+        </div>
+
+        <div
+          class="profile-content-row contact info"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+          fxLayout.xs="column"
+          fxLayoutAlign.xs="center center"
+        >
+          <div
+            class="profile-element document-type"
+            fxLayout="column"
+            fxLayoutAlign="start startr"
+            fxLayoutAlign.xs="start center"
+          >
+            <strong>{{ document.documentType }}</strong>
+            <div class="profile-component-detail">Document Type</div>
+          </div>
+          <div
+            class="profile-element document-no"
+            fxLayout="column"
+            fxLayoutAlign="start end"
+            fxLayoutAlign.xs="start center"
+          >
+            <strong>{{ document.documentNumber }}</strong>
+            <div class="profile-component-detail">Document No.</div>
+          </div>
+        </div>
+
+        <div
+          class="profile-content-row contact info"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+          fxLayout.xs="column"
+          fxLayoutAlign.xs="center center"
+        >
+          <div
+            class="profile-element document-type"
+            fxLayout="column"
+            fxLayoutAlign="start startr"
+            fxLayoutAlign.xs="start center"
+          >
+            <div *ngIf="status === 'Accepted'" class="verification-done">
+              {{ status }}
+            </div>
+
+            <div *ngIf="status === 'Rejected'" class="verification-failed">
+              {{ status }}
+            </div>
+
+            <div *ngIf="status === 'Pending'" class="verification-pending">
+              {{ status }}
+            </div>
+
+            <div *ngIf="status === 'Reported'" class="verification-reported">
+              {{ status }}
+            </div>
+
+            <div
+              *ngIf="status === 'Registered'"
+              class="verification-registered"
+            >
+              {{ status }}
+            </div>
+
+            <div class="profile-component-detail">Status</div>
+            <a
+              color="primary"
+              *ngIf="status === 'Rejected' || status === 'Reported'"
+              class="reason"
+              (click)="showReason(review)"
+              >Reason?</a
+            >
+          </div>
+          <div
+            class="profile-element document-no"
+            fxLayout="column"
+            fxLayoutAlign="start end"
+            fxLayoutAlign.xs="start center"
+          >
+            <button mat-stroked-button color="primary" (click)="viewDocument()">
+              View Document
+            </button>
+          </div>
+        </div>
+        <div
+          class="profile-content-row address-container"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <div
+            class="profile-element live-video"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <video #video controls [width]="320" [height]="180"></video>
+            <br />
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <b>Question : &nbsp; </b>
+              <div class="profile-component-detail">
+                {{ liveliness.question }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="userType === 'admin' && status === 'Pending' && kyeasyVerification!=='n'"
+          class="profile-buttons"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <button (click)="acceptEmployee()" mat-stroked-button color="primary">
+            <mat-icon>check</mat-icon>&nbsp;Accept
+          </button>
+          <button (click)="rejectEmployee()" mat-stroked-button color="warn">
+            <mat-icon>clear</mat-icon>&nbsp;Reject
+          </button>
+        </div>
+
+        <div
+        *ngIf="userType === 'company' && status === 'Pending' && kyeasyVerification === 'n'"
+        class="profile-buttons"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        >
+        <button (click)="acceptEmployee()" mat-stroked-button color="primary">
+          <mat-icon>check</mat-icon>&nbsp;Accept
+        </button>
+        <button (click)="rejectEmployee()" mat-stroked-button color="warn">
+          <mat-icon>clear</mat-icon>&nbsp;Reject
+        </button>
+        </div>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

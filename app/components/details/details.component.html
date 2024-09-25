@@ -1,0 +1,116 @@
+<div class="details">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <form
+      [formGroup]="form"
+      fxLayout="column"
+      (ngSubmit)="onSave()"
+      [ngStyle.xs]="{ width: '90%' }"
+      [ngStyle.sm]="{ width: '70%' }"
+      [ngStyle.md]="{ width: '50%' }"
+      [ngStyle.lg]="{ width: '40%' }"
+      [ngStyle.xl]="{ width: '40%' }"
+    >
+      <mat-form-field appearance="outline" fxflex>
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstName" matInput />
+        <mat-error
+          *ngIf="!form.get('firstName').valid && form.get('firstName').touched"
+        >
+          You must give <strong>first name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxflex>
+        <mat-label>Last Name</mat-label>
+        <input formControlName="lastName" matInput />
+        <mat-error
+          *ngIf="!form.get('lastName').valid && form.get('lastName').touched"
+        >
+          You must give <strong>last name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput />
+        <mat-error
+          *ngIf="!form.get('email').valid && form.get('email').touched"
+        >
+          You must give <strong>email</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>Contact Number</mat-label>
+        <input formControlName="contact" matInput />
+        <mat-error
+          *ngIf="!form.get('contact').valid && form.get('contact').touched"
+        >
+          You must give <strong>contact</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="radio-container">
+        <label> Gender* </label>
+        <mat-radio-group
+          fxFlex
+          fxLayout="row"
+          fxFlexAlign="space-around center"
+          formControlName="gender"
+        >
+          <mat-radio-button value="m" fxFlex>Male</mat-radio-button>&nbsp;
+          <mat-radio-button value="f" fxFlex>Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>Address Line 1</mat-label>
+        <input formControlName="addressLine1" matInput />
+        <mat-error
+          *ngIf="
+            !form.get('addressLine1').valid && form.get('addressLine1').touched
+          "
+        >
+          You must give <strong>address</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>Address Line 2</mat-label>
+        <input formControlName="addressLine2" matInput />
+      </mat-form-field>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>City</mat-label>
+        <input formControlName="city" matInput />
+        <mat-error *ngIf="!form.get('city').valid && form.get('city').touched">
+          You must give <strong>city</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>State</mat-label>
+        <input formControlName="state" matInput />
+        <mat-error
+          *ngIf="!form.get('state').valid && form.get('state').touched"
+        >
+          You must give its <strong>state name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxflex appearance="outline">
+        <mat-label>Country</mat-label>
+        <input formControlName="country" matInput />
+        <mat-error
+          *ngIf="!form.get('country').valid && form.get('country').touched"
+        >
+          Company must give its <strong>country name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div fxFlex class="button-container">
+        <button mat-raised-button color="primary" type="submit">Next</button>
+      </div>
+    </form>
+  </div>
+</div>

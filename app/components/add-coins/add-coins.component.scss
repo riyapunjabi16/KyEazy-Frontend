@@ -1,0 +1,30 @@
+.sheet-container {
+  width: 100%;
+  .form-header {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 80%;
+  }
+  form {
+    width: 80%;
+    .add-coins-form {
+      width: 100%;
+      .coins-input-field {
+        width: 100%;
+      }
+    }
+    .add-coins-form-text {
+      width: 100%;
+    }
+    .pay-button-container {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+  }
+}
+
+.per-employee-price {
+  font-size: 1.2rem;
+}

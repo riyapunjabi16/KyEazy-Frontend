@@ -1,0 +1,32 @@
+.kyc {
+  height: 90%;
+}
+
+.kyc-mobile {
+  height: 90%;
+  overflow: auto;
+}
+
+.mat-stepper-vertical,
+.mat-stepper-horizontal {
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep .mat-horizontal-content-container {
+  overflow-y: auto !important;
+  height: 85%;
+}
+
+::ng-deep .mat-horizontal-stepper-content {
+  outline: 0;
+  height: 100%;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+
+::ng-deep .mat-vertical-stepper-header {
+  pointer-events: none !important;
+}

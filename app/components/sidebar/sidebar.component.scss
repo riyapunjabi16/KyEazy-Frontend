@@ -1,0 +1,47 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  background: teal;
+}
+
+.sidenav-medium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  background: teal;
+}
+
+.sidenav-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background: rgb(0, 160, 160);
+}
+
+.sidenav-expansion {
+  background-color: rgba(167, 57, 57, 0);
+  .sidenav-expansion-header {
+    font-size: 1.6rem;
+    padding-left: 1.6rem;
+  }
+}
+
+.a {
+  background-color: rgba(231, 231, 231, 0.5);
+}
+
+.sidenav-list-item {
+  color: white;
+}
+
+::ng-deep .sidenav-expansion-header > .mat-expansion-indicator:after {
+  color: white;
+}

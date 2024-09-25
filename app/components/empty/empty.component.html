@@ -1,0 +1,48 @@
+<mat-card
+  [ngClass.gt-xs]="'no-employee-container-card'"
+  [ngClass.lt-sm]="'no-employee-container-card-mobile'"
+  fxLayout.gt-xs="row"
+  fxLayoutAlign.gt-xs="space-around center"
+  fxLayout.xs="column-reverse"
+  fxLayoutAlign.xs="space-around center"
+>
+  <div
+    [ngClass.xs]="'no-employee-content-mobile'"
+    [ngClass.gt-xs]="'no-employee-content'"
+  >
+    <div class="no-employee-text" *ngIf="dataType === 'employee'">
+      <h1 class="no-employee-heading">No Employee Has Been Registered Yet!</h1>
+      <h2 class="no-employee-sub-heading" *ngIf="page === 'company'">
+        Please Register an Employee.
+      </h2>
+      <h2 class="no-employee-sub-heading" *ngIf="page === 'admin'">
+        Please Wait for the Company to Register an Employee.
+      </h2>
+    </div>
+
+    <div class="no-company-text" *ngIf="dataType === 'company'">
+      <h1 class="no-company-heading">No Company has Registered Yet!</h1>
+      <h2 class="no-company-sub-heading">
+        Please Wait for Company to register.
+      </h2>
+    </div>
+
+    <div
+      class="register-button"
+      *ngIf="dataType === 'employee' && page === 'company'"
+    >
+      <button mat-stroked-button color="primary" routerLink="/company/register">
+        Get Started <mat-icon>navigate_next</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div
+    [ngClass.xs]="'no-employee-image-container-mobile'"
+    [ngClass.gt-xs]="'no-employee-image-container'"
+  >
+    <img
+      class="no-employee-image"
+      src="assets/images/no-employee-dashboard.png"
+    />
+  </div>
+</mat-card>

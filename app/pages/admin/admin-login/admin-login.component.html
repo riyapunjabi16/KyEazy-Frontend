@@ -1,0 +1,21 @@
+<div class="card-container" fxLayout="row" fxLayoutAlign="center">
+  <mat-card
+    [ngClass.gt-sm]="'admin-sign-in-card'"
+    [ngClass.sm]="'admin-sign-in-card-medium'"
+    [ngClass.xs]="'admin-sign-in-card-mobile'"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <mat-card-header fxFlex="20" fxLayout="row" fxLayoutAlign="center end">
+      <mat-card-title>Admin Sign In</mat-card-title>
+    </mat-card-header>
+    <app-login
+      [type]="'ADMIN_LOGIN'"
+      fxFlex="80"
+      fxLayout="column"
+      fxLayoutAlign="center"
+      [ngStyle.gt-xs]="'width: 60%;'"
+      [ngStyle.xs]="'width: 80%;'"
+    ></app-login>
+  </mat-card>
+</div>

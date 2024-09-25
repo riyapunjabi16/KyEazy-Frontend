@@ -1,0 +1,26 @@
+.form-container {
+  width: 30rem;
+  height: 20rem;
+  margin-top: 1rem;
+  .reportForm {
+    width: 90%;
+    height: 90%;
+    .form-field {
+      width: 100%;
+      // height: 70%;
+    }
+  }
+}
+.form-container-mobile {
+  width: 20rem;
+  height: 15rem;
+  margin-top: 1rem;
+  .reportForm {
+    width: 100%;
+    height: 100%;
+    .form-field {
+      width: 100%;
+      // height: 70%;
+    }
+  }
+}

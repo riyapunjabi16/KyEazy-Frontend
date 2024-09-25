@@ -1,0 +1,41 @@
+<div
+  class="pie-chart-container"
+  fxLayout="row"
+  fxLayoutAlign="space-around center"
+  fxLayout.lt-md="column"
+  fxLayoutAlign.lt-md="start center"
+>
+  <div class="pie-chart">
+    <ngx-charts-pie-chart
+      [view]="chartView"
+      [scheme]="colorScheme"
+      [results]="pieChartData"
+      [gradient]="gradient"
+      [legend]="showNormalLegend"
+      [legendPosition]="legendPosition"
+      [labels]="showLabels"
+      [doughnut]="isDoughnut"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+    >
+    </ngx-charts-pie-chart>
+  </div>
+  <div
+    [ngClass.gt-xs]="'pie-chart-legend'"
+    [ngClass.xs]="'pie-chart-legend-mobile'"
+    fxLayout="row"
+    fxLayoutAlign="end"
+    fxLayoutAlign.lt-md="center"
+  >
+    <ngx-charts-advanced-pie-chart
+      style="line-height: 1.5rem"
+      [view]="legendView"
+      [scheme]="colorScheme"
+      [results]="pieChartData"
+      [label]="'Total Employees'"
+      *ngIf="!isSmall"
+    >
+    </ngx-charts-advanced-pie-chart>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+.employee-container {
+  // margin-top: 1% !important;
+}
+
+.employee-container-mobile {
+  margin-top: 1% !important;
+}
+
+.employee-cards-container {
+  width: 95%;
+}
+.employee-cards-container-mobile {
+  width: 95%;
+}
+.employee-card {
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.employee-card-mobile {
+  width: 100%;
+
+  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.employee-paginator {
+  width: 93%;
+}
+
+.status-container {
+  margin-bottom: 0;
+  .verification-done {
+    color: green;
+  }
+  .verification-failed {
+    color: red;
+  }
+  .verification-pending {
+    color: sandybrown;
+  }
+  .verification-registered {
+    color: #677e9a;
+  }
+}
+
+.status-container-mobile {
+  margin-bottom: 0;
+  width: 100%;
+  margin-top: 1rem;
+  .verification-done {
+    color: green;
+  }
+  .verification-failed {
+    color: red;
+  }
+  .verification-pending {
+    color: sandybrown;
+  }
+  .verification-registered {
+    color: #677e9a;
+  }
+}
+.employee-email {
+  margin-bottom: 0;
+}
+
+.mat-paginator {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.employee-display-options {
+  width: 95%;
+  margin-top: 1rem;
+}
+
+.employee-display-options-mobile {
+  width: 95%;
+}
+
+.filter-sort-employees {
+  width: 45%;
+  font-size: 1.2rem;
+  mat-form-field {
+    background-color: rgba(0, 0, 0, 0);
+    padding-bottom: 0;
+    width: 45%;
+  }
+}
+
+.filter-sort-employees-mobile {
+  width: 100%;
+  font-size: 1.2rem;
+  mat-form-field {
+    background-color: rgba(0, 0, 0, 0);
+    padding-bottom: 0;
+    width: 47.5%;
+  }
+}
+
+.search-employees {
+  font-size: 1.2rem;
+  width: 100%;
+  .search-form-field {
+    width: 50%;
+  }
+  .search-button {
+    margin-top: 0.2em;
+    height: 4.3rem;
+  }
+}
+
+.search-employees-mobile {
+  font-size: 1.2rem;
+  width: 100%;
+  .search-form-field-mobile {
+    width: 100%;
+    min-width: none;
+  }
+  .search-button {
+    margin-top: 0.2em;
+    height: 4.3rem;
+  }
+}
+
+.container-card {
+  width: 96%;
+  margin-top: 2%;
+}
+
+.container-card-mobile {
+  width: 100%;
+  margin-top: 0.5%;
+  padding: 0.8rem;
+}

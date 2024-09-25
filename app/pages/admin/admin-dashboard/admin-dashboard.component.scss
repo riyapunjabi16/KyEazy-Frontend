@@ -1,0 +1,66 @@
+.company-container {
+  margin-top: 1%;
+
+  .search-comapny {
+    width: 90%;
+    font-size: 1.2rem;
+    display: block;
+
+    .search-form-field {
+      width: 50%;
+    }
+    .search-button {
+      margin-top: 0.2em;
+      height: 4.3rem;
+    }
+  }
+
+  .company-card {
+    width: 90%;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.company-container-mobile {
+  margin-top: 1%;
+
+  .search-comapny-mobile {
+    width: 90%;
+    font-size: 1.2rem;
+
+    .search-form-field-mobile {
+      width: 50%;
+      width: 90%;
+    }
+    .search-button-mobile {
+      margin-top: 0.2em;
+      height: 4.3rem;
+    }
+  }
+
+  .company-card-mobile {
+    margin-bottom: 1.6rem;
+  }
+}
+
+.container-card {
+  width: 96%;
+  margin-top: 2%;
+}
+
+.container-card-mobile {
+  width: 100%;
+  margin-top: 0.5%;
+  padding: 0.8rem;
+}
+.employee-status-mobile {
+  display: inline;
+}
+
+.view-more {
+  width: 30%;
+}
+
+.view-more-mobile {
+  width: 75%;
+}

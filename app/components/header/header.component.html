@@ -1,0 +1,70 @@
+<header class="header">
+  <div class="row" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="menu-logo" fxLayout="row" fxLayoutAlign="start center">
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="toggleMenu()"
+        *ngIf="deviceSmall && !isHome && !isAdminLogin!; isCompanySignup"
+        class="menu-button"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <div class="logo">
+        <a routerLink="/">
+          <img src="/assets/images/logo.png" />
+        </a>
+      </div>
+    </div>
+
+    <div class="buttons" fxLayout="row" fxLayoutAlign="start center">
+      <div
+        class="large-header-buttons"
+        *ngIf="!deviceSmall"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <button mat-button (click)="scrollToAbout()" *ngIf="isHome">
+          About
+        </button>
+        <button mat-button (click)="openBottomSheet()" *ngIf="isHome">
+          Contact Us
+        </button>
+        <button
+          mat-button
+          href="/company/wallet"
+          *ngIf="showCoins"
+          routerLink="/company/wallet"
+        >
+          <div class="coins" fxLayout="row" fxLayoutAlign="center center">
+            {{ coins }}<mat-icon style="color: gold">paid</mat-icon>
+          </div>
+        </button>
+
+        <button
+          mat-stroked-button
+          (click)="doLogout()"
+          class="logout"
+          color="primary"
+          *ngIf="loginService.isLoggedIn()"
+        >
+          Log Out
+        </button>
+      </div>
+
+      <div class="small-header-buttons" *ngIf="deviceSmall">
+        <button mat-icon-button color="primary" *ngIf="isHome">
+          <mat-icon (click)="openBottomSheet()">contact_support</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="primary"
+          *ngIf="loginService.isLoggedIn()"
+        >
+          <mat-icon (click)="doLogout()">logout</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

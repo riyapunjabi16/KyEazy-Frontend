@@ -1,0 +1,107 @@
+<!-- <div
+  fxLayout="column"
+  *ngIf="companiesLoading || numberOfCompaniesLoading"
+  fxLayoutAlign="center center"
+  class="loader"
+>
+  <mat-spinner></mat-spinner>
+</div> -->
+
+<div fxLayout="column" fxLayoutAlign="start center" style="min-height: 90%">
+  <mat-card
+    *ngIf="!zeroCompanies"
+    [ngClass.gt-xs]="'container-card'"
+    [ngClass.xs]="'container-card-mobile'"
+  >
+    <!-- *ngIf="!companiesLoading && !numberOfCompaniesLoading" -->
+
+    <div
+      [ngClass]="{
+        'company-container-mobile': isSmall,
+        'company-container': !isSmall
+      }"
+      *ngIf="!loading"
+      fxLayout="row wrap"
+      fxLayoutAlign="center"
+      fxLayoutAlign.xs="space-around center"
+      style="margin: auto"
+    >
+      <div
+        [ngClass.xs]="'search-comapny-mobile'"
+        [ngClass.gt-xs]="'search-comapny'"
+        fxLayout="row"
+        fxLayoutAlign="end"
+      >
+        <mat-form-field
+          [ngClass]="{
+            'search-form-field-mobile': isSmall,
+            'search-form-field': !isSmall
+          }"
+          appearance="outline"
+          fxFlex.gt-xs="30"
+        >
+          <mat-label
+            [ngClass]="{
+              'search-form-mobile': isSmall,
+              'search-form': !isSmall
+            }"
+            >Search</mat-label
+          >
+          <input
+            type="text"
+            matInput
+            placeholder="Search by Company Name"
+            class="search-form-input"
+            (input)="onSearchText($event)"
+          /> </mat-form-field
+        >&nbsp;
+
+        <button
+          mat-raised-button
+          color="primary"
+          [ngClass]="{
+            'search-button-mobile': isSmall,
+            'search-button': !isSmall
+          }"
+          (click)="OnSearchSelect()"
+        >
+          <mat-icon aria-label="i">search</mat-icon>
+        </button>
+      </div>
+
+      <div
+        *ngFor="let company of companies"
+        style="margin-top: 1rem"
+        class="full-width"
+        fxLayout="row"
+        fxLayoutAlign="center"
+      >
+        <app-company-card
+          [company]="company"
+          style="width: 95%"
+        ></app-company-card>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end" class="company-paginator">
+      <mat-paginator
+        #matPaginator
+        [length]="this.paginator.length"
+        [pageSize]="this.paginator.currentPageSize"
+        [pageSizeOptions]="this.paginator.pageSizeOptions"
+        (page)="OnPageChange($event)"
+        [hidePageSize]="isSmall"
+      >
+      </mat-paginator>
+    </div>
+  </mat-card>
+
+  <app-empty
+    style="width: 96%"
+    [dataType]="'company'"
+    [page]="'admin'"
+    *ngIf="zeroCompanies"
+  ></app-empty>
+</div>

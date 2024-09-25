@@ -1,0 +1,89 @@
+.pie-chart-container {
+  width: 100%;
+}
+.pie-chart-legend-mobile {
+  width: 100%;
+}
+.pie-chart-legend {
+  ::ng-deep .advanced-pie-legend {
+    .total-value {
+      height: 4rem;
+    }
+
+    .legend-items {
+      overflow: visible !important;
+      font-family: Montserrat;
+      line-height: 2.5rem;
+      .legend-item {
+        height: 100%;
+        cursor: unset !important;
+        .item-value {
+          font-size: 1.8rem !important;
+        }
+        .item-percent {
+          font-size: 1.8rem !important;
+        }
+      }
+      .item-color {
+        height: 6.5rem !important;
+      }
+    }
+  }
+}
+
+.pie-chart-legend-mobile {
+  display: none;
+  ::ng-deep .advanced-pie-legend {
+    display: none;
+    margin-left: -7.5rem;
+    .total-value {
+      height: 3rem;
+      font-size: 2rem !important;
+    }
+    .total-label {
+      font-size: 1.5rem !important;
+    }
+
+    .legend-items {
+      display: none;
+      overflow: visible !important;
+      // background-color: yellow;
+      font-family: Montserrat;
+      line-height: 2.5rem;
+
+      .legend-item {
+        height: 100%;
+        margin-right: 0.9rem !important;
+        cursor: unset !important;
+        .item-value {
+          font-size: 1.4rem !important;
+        }
+        .item-label {
+          font-size: 1.2rem !important;
+        }
+        .item-percent {
+          font-size: 1.4rem !important;
+        }
+      }
+      .item-color {
+        height: 6.5rem !important;
+      }
+    }
+  }
+}
+
+::ng-deep .advanced-pie {
+  display: none;
+  .chart {
+    display: none;
+  }
+  width: 0 !important;
+}
+
+::ng-deep .advanced-pie-legend-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
